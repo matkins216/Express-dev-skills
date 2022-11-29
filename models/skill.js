@@ -1,4 +1,3 @@
-const { editSkill } = require("../controllers/skills");
 
 const skills = [
     {id: 12345, skill: 'Front End Design', name: 'Matt'},
@@ -12,7 +11,7 @@ module.exports = {
     create,
     deleteOne,
     edit,
-    // update
+    update
 };
 
 
@@ -40,10 +39,11 @@ function getAll() {
     skills.splice(idx, 1);
   }
 
-  function edit(skill){
+  function edit(skill) {
     skills.push(skill);
   }
 
-  // function update(skill){
-  //   skills.push(skill);
-  // }
+  function update(skill, id){
+    const idx = skills.findIndex(skill => skill.id === parseInt(id));
+    skills.push(skill, id);
+  }
